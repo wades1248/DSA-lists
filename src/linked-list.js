@@ -72,6 +72,60 @@ class LinkedList{
         let tempNode = currNode
         currNode.next = new _Node(item, tempNode.next)
     }
+    reverse(){
+        let currNode = this.head
+        let prevNode = null
+        if(!this.head){
+            return null
+        }
+        while(currNode.next !== null){
+            
+            let tempNode = currNode.next
+            currNode.next = prevNode
+            prevNode = currNode
+            currNode = tempNode
+
+        }
+        this.head = currNode
+        this.head.next = prevNode
+        
+    }
+    thirdFromLast(){
+        let currNode = this.head
+        let prev = null
+        let priorPrev = null
+        if(!this.head){
+            return null
+        }
+        while(currNode.next !== null){
+            priorPrev = prev
+            prev = currNode
+            currNode = currNode.next
+
+        }
+        return priorPrev
+    }
+    findMiddle() {
+        let fast = this.head
+        let slow = this.head
+        while(fast.next !== null && fast.next.next !== null){
+            fast = fast.next.next
+            slow = slow.next
+        }
+        return slow
+    }
+    findLoop(){
+        let fast = this.head
+        let slow = this.head
+        while(fast && fast.next){
+            fast = fast.next.next
+            slow = slow.next
+            if( fast === slow){
+                return true
+            }
+        }
+        return false
+    }
     find(item){
         let currNode = this.head
         if(!this.head){

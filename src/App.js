@@ -26,7 +26,14 @@ function App() {
     console.log(SLL.size())
     console.log(SLL.findPrevious('Helo'))
     console.log(SLL.findLast())
+    SLL.reverse()
+    console.log(SLL)
+    SLL.reverse()
+    console.log(SLL.thirdFromLast())
+    console.log(SLL.findMiddle())
+    console.log(SLL.findLoop())
     }
+    
 
   return (
     <div className="App">
